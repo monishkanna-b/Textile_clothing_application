@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/monishkanna-b/Textile_clothing_application.git'
+                git branch: 'main', url: 'https://github.com/monishkanna-b/Textile_clothing_application.git'
             }
         }
 
