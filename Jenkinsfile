@@ -3,7 +3,6 @@ pipeline {
 
     stages {
 
-        
         stage('Build') {
             steps {
                 bat 'npm install'
@@ -11,15 +10,15 @@ pipeline {
             }
         }
 
-        stage('Testing') {
+        stage('Backend Dependencies') {
             steps {
-                echo 'Running Tests'
+                bat 'pip install -r backend\\requirements.txt'
             }
         }
 
-        stage('Deploy') {
+        stage('Trigger Automation') {
             steps {
-                echo 'Deploying Application'
+                build job: 'BDD_Automation_Testing'
             }
         }
     }
